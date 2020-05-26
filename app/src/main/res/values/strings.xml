@@ -8,4 +8,10 @@
     <string name="todo">TODO</string>
     <string name="log_in_with_your_phone_number">Log In with your phone number</string>
     <string name="welcome_to_yolo_date">Welcome to Yolo Date</string>
+    <string name="Password">TextView</string>
+    <string name="Email">TextView</string>
+    <string name="Login">Button</string>
+    <string name="Picture">TODO</string>
+    <string name="login_with_you_email">Login with you email</string>
+    <string name="sign_up">Sign up</string>
 </resources>

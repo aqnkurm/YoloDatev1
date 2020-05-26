@@ -32,9 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private String TAG = "MainActivity";
     private FirebaseAuth mAuth;
-    private Button btnSignOut;
+    private Button Login, SignUp;
     private int RC_SIGN_IN = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,24 @@ public class MainActivity extends AppCompatActivity {
 
         signInButton = findViewById(R.id.sign_in_button);
         mAuth = FirebaseAuth.getInstance();
-        btnSignOut = findViewById(R.id.sign_out_button);
+        Login = findViewById(R.id.Log_in);
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PhoneActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        SignUp = findViewById(R.id.SignUp);
+        SignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -52,21 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-            }
-        });
-
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mGoogleSignInClient.signOut();
-                Toast.makeText(MainActivity.this, "You are Logged Out", Toast.LENGTH_SHORT).show();
-                btnSignOut.setVisibility(View.INVISIBLE);
-            }
-        });
     }
 
     private void signIn() {
@@ -118,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser fUser) {
-        btnSignOut.setVisibility(View.VISIBLE);
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (account != null) {
             String personName = account.getDisplayName();
