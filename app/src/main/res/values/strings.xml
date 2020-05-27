@@ -4,7 +4,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="sign_out">Sign out</string>
     <string name="todo">TODO</string>
     <string name="log_in_with_your_phone_number">Log In with your phone number</string>
     <string name="welcome_to_yolo_date">Welcome to Yolo Date</string>
@@ -12,8 +11,8 @@
     <string name="Email">TextView</string>
     <string name="Login">Button</string>
     <string name="Picture">TODO</string>
-    <string name="sign_up">Sign up</string>
-    <string name="logout">Logout</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="logout">Log Out</string>
     <string name="welcome_follow_these_steps_to_complete_the_process">Welcome! follow these steps to complete the process</string>
     <string name="sign_out_new">Sign Out</string>
     <string name="what_is_your_gender">What is your gender?</string>
