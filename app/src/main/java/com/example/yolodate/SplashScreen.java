@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
-    private static int SPLASH_SCREEN = 5000;
+    private static int SPLASH_TIME_OUT = 5000;
     private ImageView image;
 
     @Override
@@ -19,10 +19,10 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intent);
+                Intent homeIntent = new Intent(SplashScreen.this, MainActivity.class);
+                startActivity(homeIntent);
                 finish();
             }
-        }, SPLASH_SCREEN);
+        }, SPLASH_TIME_OUT);
     }
 }

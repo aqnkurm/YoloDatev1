@@ -12,7 +12,6 @@
     <string name="Email">TextView</string>
     <string name="Login">Button</string>
     <string name="Picture">TODO</string>
-    <string name="login_with_you_email">Login with you email</string>
     <string name="sign_up">Sign up</string>
     <string name="logout">Logout</string>
     <string name="welcome_follow_these_steps_to_complete_the_process">Welcome! follow these steps to complete the process</string>
@@ -22,4 +21,5 @@
     <string name="male">Male</string>
     <string name="next">Next</string>
     <string name="Logo">LOGO</string>
+    <string name="login_with_your_email">Login with your email</string>
 </resources>
