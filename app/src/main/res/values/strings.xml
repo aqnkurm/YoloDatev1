@@ -21,4 +21,9 @@
     <string name="next">Next</string>
     <string name="Logo">LOGO</string>
     <string name="login_with_your_email">Login with your email</string>
+    <string name="by_clicking_the_log_in_you_agree_with_our_terms_learn_how_we_process_your_data_in_our_privacy_policy_and_cookies_policy">By clicking the Log In, you agree with our Terms, Learn how we process your data in our Privacy Policy and Cookies Policy.</string>
+    <string name="Logo_home">home_logo</string>
+    <string name="Logo_white">White</string>
+    <string name="name">Name</string>
+    <string name="what_s_your_name">What\'s your name?</string>
 </resources>
