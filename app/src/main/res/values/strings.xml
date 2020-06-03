@@ -26,4 +26,9 @@
     <string name="Logo_white">White</string>
     <string name="name">Name</string>
     <string name="what_s_your_name">What\'s your name?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="not_registered_sign_up_here">Not registered? Sign Up here</string>
+    <string name="sign_in">Sign In</string>
+    <string name="Logo_logo">logoloo</string>
 </resources>
