@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".PhoneActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="412dp"
+        android:layout_height="627dp"
+        android:layout_marginBottom="18dp"
+        android:contentDescription="@string/graphic"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/graphic" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
@@ -85,4 +99,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/splash_logo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
