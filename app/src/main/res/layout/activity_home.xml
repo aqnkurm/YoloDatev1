@@ -54,10 +54,10 @@
         android:layout_width="199dp"
         android:layout_height="37dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="192dp"
         android:text="@string/what_is_your_gender"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,6 @@
         android:layout_width="158dp"
         android:layout_height="84dp"
         android:layout_marginStart="46dp"
-        android:layout_marginBottom="1dp"
         android:text="@string/male"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toStartOf="@+id/button4"
@@ -90,10 +89,11 @@
         android:layout_height="84dp"
         android:layout_marginStart="114dp"
         android:layout_marginEnd="114dp"
-        android:layout_marginBottom="79dp"
+        android:layout_marginBottom="64dp"
         android:text="@string/other"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
