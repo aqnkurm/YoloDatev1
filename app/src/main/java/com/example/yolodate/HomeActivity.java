@@ -15,9 +15,9 @@ import java.util.HashMap;
 
 public class HomeActivity extends AppCompatActivity {
     Button btnLogout;
-    Button male;
-    Button female;
-    Button other;
+    Button mMale;
+    Button mFemale;
+    Button mOther;
     private DatabaseReference mDatabase;
 
     @Override
@@ -25,9 +25,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         btnLogout = findViewById(R.id.logout);
-        male = findViewById(R.id.button3);
-        female = findViewById(R.id.button4);
-        other = findViewById(R.id.button5);
+        mMale = findViewById(R.id.button3);
+        mFemale = findViewById(R.id.button4);
+        mOther = findViewById(R.id.button5);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,26 +37,29 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intToMain);
             }
         });
-        male.setOnClickListener(new View.OnClickListener() {
+        mMale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HashMap<String, Button> dataMap = new HashMap<String, Button>();
+                String male = mMale.getText().toString().trim();
+                HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
                 mDatabase.push().setValue(dataMap);
             }
         });
-        female.setOnClickListener(new View.OnClickListener() {
+        mFemale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HashMap<String, Button> dataMap = new HashMap<String, Button>();
+                String female = mFemale.getText().toString().trim();
+                HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
                 mDatabase.push().setValue(dataMap);
             }
         });
-        other.setOnClickListener(new View.OnClickListener() {
+        mOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HashMap<String, Button> dataMap = new HashMap<String, Button>();
+                String other = mOther.getText().toString().trim();
+                HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
                 mDatabase.push().setValue(dataMap);
             }
