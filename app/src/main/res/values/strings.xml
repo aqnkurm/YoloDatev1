@@ -26,4 +26,17 @@
     <string name="Logo_white">White</string>
     <string name="name">Name</string>
     <string name="what_s_your_name">What\'s your name?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="not_registered_sign_up_here">Not registered? Sign Up here</string>
+    <string name="sign_in">Sign In</string>
+    <string name="Logo_logo">logoloo</string>
+    <string name="graphic">image</string>
+    <string name="email2">Email</string>
+    <string name="password2">Password</string>
+    <string name="already_have_an_account_sign_in_here">Already have an account? Sign in here</string>
+    <string name="sign_up2">Sign Up</string>
+    <string name="todo2">TODO</string>
+    <string name="other">other</string>
+    <string name="what_is_your_gender">What is your gender?</string>
 </resources>
