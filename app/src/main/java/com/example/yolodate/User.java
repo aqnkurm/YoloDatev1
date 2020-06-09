@@ -14,6 +14,14 @@ public class User extends HomeActivity {
         gender = null;
         preferredSex = null;
     }
+    public User(String gender) {
+        this.gender = gender;
+    }
+
+    public User(String gender, String preferredSex) {
+        this.gender = gender;
+        this.preferredSex = preferredSex;
+    }
 
     public User(String gender) {
         this.gender = gender;

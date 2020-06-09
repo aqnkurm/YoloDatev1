@@ -42,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         mMale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                User newUser = new User("Male");
                 String male = mMale.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
