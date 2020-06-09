@@ -15,6 +15,14 @@ public class User extends HomeActivity {
         gender = null;
         preferredSex = null;
     }
+    public User(String gender) {
+        this.gender = gender;
+    }
+
+    public User(String gender, String preferredSex) {
+        this.gender = gender;
+        this.preferredSex = preferredSex;
+    }
 
     // This function asks the user their gender
     // The user must enter 'a', 'b', or 'c' and its case insensitive
