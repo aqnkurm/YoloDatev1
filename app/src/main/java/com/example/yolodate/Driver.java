@@ -41,7 +41,7 @@ public class Driver extends User{
         System.out.println(me.getGender());
         me.setPreferredSex();
         System.out.println(me.getPreferredSex());
-
+        System.out.println("meh");
         User you = new User();
         you.setGender();
         System.out.println(you.getGender());
