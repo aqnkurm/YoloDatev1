@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class User extends HomeActivity {
     private String gender;
     private String preferredSex;
-    //private ArrayList<>
+    private ArrayList<int[]> guys = new ArrayList<>();
 
     // Constructor: Initialize the instance variables to null
     public User () {
