@@ -1,6 +1,5 @@
 package com.example.yolodate;
 
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,9 +10,18 @@ public class User extends HomeActivity {
     private ArrayList<int[]> guys = new ArrayList<>();
 
     // Constructor: Initialize the instance variables to null
-    public User () {
+    public User() {
         gender = null;
         preferredSex = null;
+    }
+
+    public User(String gender) {
+        this.gender = gender;
+    }
+
+    public User(String gender, String preferredSex) {
+        this.gender = gender;
+        this.preferredSex = preferredSex;
     }
 
     // This function asks the user their gender

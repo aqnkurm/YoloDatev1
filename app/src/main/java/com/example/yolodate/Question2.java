@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class HomeActivity extends AppCompatActivity {
+public class Question2 extends AppCompatActivity {
     Button btnLogout;
     Button mMale;
     Button mFemale;
@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_question2);
         btnLogout = findViewById(R.id.logout);
         mMale = findViewById(R.id.button3);
         mFemale = findViewById(R.id.button4);
@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intToMain = new Intent(HomeActivity.this, MainActivity.class);
+                Intent intToMain = new Intent(Question2.this, MainActivity.class);
                 startActivity(intToMain);
             }
         });
@@ -66,13 +66,13 @@ public class HomeActivity extends AppCompatActivity {
                 mDatabase.push().setValue(dataMap);
             }
         });
-        mNext.setOnClickListener(new View.OnClickListener() {
+        /*mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intToMain = new Intent(HomeActivity.this, Question2.class);
+                Intent intToMain = new Intent(HomeActivity.this, Question3.class);
                 startActivity(intToMain);
             }
-        });
+        });*/
     }
 }
