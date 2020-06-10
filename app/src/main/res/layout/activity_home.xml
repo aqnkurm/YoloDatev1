@@ -75,6 +75,7 @@
         android:textAllCaps="false"
         android:textColor="#ffff"
         android:textSize="20sp"
+        android:onClick="@android:background=@drawable/shape"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintStart_toStartOf="parent" />
