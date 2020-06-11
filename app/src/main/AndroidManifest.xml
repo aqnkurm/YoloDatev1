@@ -14,7 +14,13 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".ActivitySetUp"></activity>
+        <activity android:name=".ActivityMatchProfile" />
+        <activity android:name=".ActivitySettings" />
+        <activity android:name=".ActivityMeme" />
+        <activity android:name=".ActivityProfile" />
+        <activity android:name=".ActivityChat" />
+        <activity android:name=".MainActivity2" />
         <activity android:name=".Question8" />
         <activity android:name=".Question7" />
         <activity android:name=".Question6" />
