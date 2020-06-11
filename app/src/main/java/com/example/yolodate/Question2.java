@@ -1,6 +1,7 @@
 package com.example.yolodate;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +47,7 @@ public class Question2 extends AppCompatActivity {
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
                 mDatabase.push().setValue(dataMap);
+                mMale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
         mFemale.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +57,7 @@ public class Question2 extends AppCompatActivity {
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
                 mDatabase.push().setValue(dataMap);
+                mFemale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
         mOther.setOnClickListener(new View.OnClickListener() {
@@ -64,15 +67,17 @@ public class Question2 extends AppCompatActivity {
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
                 mDatabase.push().setValue(dataMap);
+                mOther.setBackgroundColor(Color.parseColor("#22e4ac"));
+
             }
         });
-        /*mNext.setOnClickListener(new View.OnClickListener() {
+        mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intToMain = new Intent(HomeActivity.this, Question3.class);
+                Intent intToMain = new Intent(Question2.this, Question3.class);
                 startActivity(intToMain);
             }
-        });*/
+        });
     }
 }

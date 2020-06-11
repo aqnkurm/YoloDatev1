@@ -1,6 +1,7 @@
 package com.example.yolodate;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -58,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
                 mDatabase.push().setValue(dataMap);
+                mMale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
         mFemale.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
                 mDatabase.push().setValue(dataMap);
+                mFemale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
         mOther.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                 String other = mOther.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
+                mOther.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
         mNext.setOnClickListener(new View.OnClickListener() {
