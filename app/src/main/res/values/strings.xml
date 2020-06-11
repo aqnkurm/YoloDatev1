@@ -39,4 +39,5 @@
     <string name="todo2">TODO</string>
     <string name="other">other</string>
     <string name="ImgSignUp">ImgSignUp</string>
+    <string name="default_web_client_id">mGoogleSignInClient</string>
 </resources>

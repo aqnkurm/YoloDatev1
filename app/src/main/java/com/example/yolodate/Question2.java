@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class Question2 extends AppCompatActivity {
+public class Question2 extends HomeActivity {
     Button btnLogout;
     Button mMale;
     Button mFemale;
@@ -46,6 +46,8 @@ public class Question2 extends AppCompatActivity {
                 String male = mMale.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
+                newFemaleUser.setPreferredSex('A');
+                newUser.setPreferredSex('A');
                 mDatabase.push().setValue(dataMap);
                 mMale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
@@ -56,6 +58,8 @@ public class Question2 extends AppCompatActivity {
                 String female = mFemale.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
+                newFemaleUser.setPreferredSex('B');
+                newUser.setPreferredSex('B');
                 mDatabase.push().setValue(dataMap);
                 mFemale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
@@ -66,6 +70,8 @@ public class Question2 extends AppCompatActivity {
                 String other = mOther.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
+                newFemaleUser.setPreferredSex('C');
+                newUser.setPreferredSex('C');
                 mDatabase.push().setValue(dataMap);
                 mOther.setBackgroundColor(Color.parseColor("#22e4ac"));
 

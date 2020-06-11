@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
+    User newFemaleUser = new User("Female");
+    User newUser = new User("Male");
     Button btnLogout;
     Button mMale;
     Button mFemale;
@@ -54,7 +56,6 @@ public class HomeActivity extends AppCompatActivity {
         mMale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User newUser = new User("Male");
                 String male = mMale.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);

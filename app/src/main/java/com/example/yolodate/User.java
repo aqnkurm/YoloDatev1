@@ -8,6 +8,7 @@ public class User extends HomeActivity {
     private String gender;
     private String preferredSex;
     private ArrayList<int[]> guys = new ArrayList<>();
+    private ArrayList<int[]> girls = new ArrayList<>();
 
     // Constructor: Initialize the instance variables to null
     public User() {
@@ -56,17 +57,17 @@ public class User extends HomeActivity {
 
     // This function asks the user their preferred sex
     // The user must enter 'a', 'b', or 'c' and its case insensitive
-    public void setPreferredSex() {
-        char response;
-        Scanner preferredSexResponse = new Scanner(System.in);
+    public void setPreferredSex(char response) {
+        //char response;
+        //Scanner preferredSexResponse = new Scanner(System.in);
         System.out.println("What is your preferred sex?");
-        response = preferredSexResponse.next().charAt(0);
+        //response = preferredSexResponse.next().charAt(0);
 
         // User entered invalid letter so we ask them again
         while (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
                 response == 'C' || response == 'c' || response == 'D' || response == 'd')) {
             System.out.println("You entered an invalid letter. Try again.");
-            response = preferredSexResponse.next().charAt(0);
+            //response = preferredSexResponse.next().charAt(0);
         }
 
         if (response == 'A' || response == 'a') {
