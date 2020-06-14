@@ -24,36 +24,10 @@ public class Driver extends User{
         }
         else if (user1PreferredSex == "BOTH" && (user1Gender == user2PreferredSex)) {
             matchSuccess = true;
-        }
-        else if (user2PreferredSex == "BOTH" && (user2Gender == user1PreferredSex)) {
-            matchSuccess = true;
-        }
-        else {
-            matchSuccess = false;
-        }
+        } else matchSuccess = user2PreferredSex == "BOTH" && (user2Gender == user1PreferredSex);
         return matchSuccess;
     }
 
     // Try the algorithm with 2 users
-    public static void main(String[] args) {
-        User me = new User();
-        me.setGender();
-        System.out.println(me.getGender());
-        me.setPreferredSex();
-        System.out.println(me.getPreferredSex());
-        System.out.println("meh");
-        User you = new User();
-        you.setGender();
-        System.out.println(you.getGender());
-        you.setPreferredSex();
-        System.out.println(you.getPreferredSex());
-
-        if (MatchSex(me,you) == true) {
-            System.out.println("Code to do rest of program");
-        }
-        else {
-            System.out.println("We will stop the program");
-        }
-    }
 
 }

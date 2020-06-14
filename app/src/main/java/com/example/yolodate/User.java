@@ -1,20 +1,18 @@
 package com.example.yolodate;
 
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class User extends HomeActivity {
     private String gender;
     private String preferredSex;
-    private ArrayList<int[]> guys = new ArrayList<>();
-    private ArrayList<int[]> girls = new ArrayList<>();
+    //private ArrayList<int[]> guys = new ArrayList<>();
+    //private ArrayList<int[]> girls = new ArrayList<>();
 
     // Constructor: Initialize the instance variables to null
     public User() {
         gender = null;
         preferredSex = null;
     }
+
     public User(String gender) {
         this.gender = gender;
     }
@@ -26,17 +24,17 @@ public class User extends HomeActivity {
 
     // This function asks the user their gender
     // The user must enter 'a', 'b', or 'c' and its case insensitive
-    public void setGender() {
-        char response;
-        Scanner genderResponse = new Scanner(System.in);
+    public void setGender(char response) {
+
+        //Scanner genderResponse = new Scanner(System.in);
         System.out.println("What is your gender?");
-        response = genderResponse.next().charAt(0);
+        //response = genderResponse.next().charAt(0);
 
         // User entered invalid letter so we ask them again
         while (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
                 response == 'C' || response == 'c' || response == 'D' || response == 'd')) {
             System.out.println("You entered an invalid letter. Try again.");
-            response = genderResponse.next().charAt(0);
+            //response = genderResponse.next().charAt(0);
         }
 
         if (response == 'A' || response == 'a') {
@@ -60,7 +58,7 @@ public class User extends HomeActivity {
     public void setPreferredSex(char response) {
         //char response;
         //Scanner preferredSexResponse = new Scanner(System.in);
-        System.out.println("What is your preferred sex?");
+        System.out.println("What is your preferred gender?");
         //response = preferredSexResponse.next().charAt(0);
 
         // User entered invalid letter so we ask them again
@@ -85,5 +83,4 @@ public class User extends HomeActivity {
     public String getPreferredSex() {
         return preferredSex;
     }
-
 }

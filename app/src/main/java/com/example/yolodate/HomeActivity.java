@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     Button mFemale;
     Button mOther;
     Button mNext;
-    private DatabaseReference mDatabase;
+    private DocumentReference mDocRef = FirebaseFirestore.getInstance().document("users");
     private FirebaseAuth mAuth;
     private String userId, male, female, other;
 
@@ -40,7 +40,6 @@ public class HomeActivity extends AppCompatActivity {
         mFemale = findViewById(R.id.button4);
         mOther = findViewById(R.id.button5);
         mNext = findViewById(R.id.button);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         userId = mAuth.getCurrentUser().getUid();
         getUserInfo();
@@ -59,7 +58,8 @@ public class HomeActivity extends AppCompatActivity {
                 String male = mMale.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
-                mDatabase.push().setValue(dataMap);
+                newUser.setGender('A');
+                mDocRef.set(dataMap);
                 mMale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
@@ -69,7 +69,8 @@ public class HomeActivity extends AppCompatActivity {
                 String female = mFemale.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
-                mDatabase.push().setValue(dataMap);
+                newFemaleUser.setGender('B');
+                mDocRef.set(dataMap);
                 mFemale.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
@@ -79,6 +80,7 @@ public class HomeActivity extends AppCompatActivity {
                 String other = mOther.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
+                mDocRef.set(dataMap);
                 mOther.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
@@ -101,11 +103,11 @@ public class HomeActivity extends AppCompatActivity {
         userInfo.put("name", male);
         userInfo.put("name", female);
         userInfo.put("name", other);
-        mDatabase.updateChildren(userInfo);
+        mDocRef.set(userInfo);
     }
 
     private void getUserInfo() {
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDocRef.set(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
@@ -114,12 +116,12 @@ public class HomeActivity extends AppCompatActivity {
                         male = map.get("name").toString();
                         mMale.setText(male);
                     }
-                    if (map.get("phone") != null) {
-                        female = map.get("phone").toString();
+                    if (map.get("name") != null) {
+                        female = map.get("name").toString();
                         mFemale.setText(female);
                     }
-                    if (map.get("phone") != null) {
-                        other = map.get("phone").toString();
+                    if (map.get("name") != null) {
+                        other = map.get("name").toString();
                         mOther.setText(other);
                     }
                 }
