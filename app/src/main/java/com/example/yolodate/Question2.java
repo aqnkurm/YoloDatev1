@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class Question2 extends HomeActivity {
+public class Question2 extends User {
     Button btnLogout;
     Button Male;
     Button Female;

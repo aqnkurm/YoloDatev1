@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/activityMeme">
+
+    <activity
+        android:id="@+id/activityMeme"
+        android:name="com.example.yolodate.ActivityMeme"
+        android:label="activity_meme"
+        tools:layout="@layout/activity_meme" />
+    <activity
+        android:id="@+id/activityChat2"
+        android:name="com.example.yolodate.ActivityChat"
+        android:label="activity_chat"
+        tools:layout="@layout/activity_chat" />
+</navigation>

@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SetUpProfile extends AppCompatActivity {
-    private EditText mNameField, mPhoneField;
+    private EditText mNameField, mPhoneField, mBio, mGender;
 
     private Button mConfirm;
 
@@ -43,7 +43,7 @@ public class SetUpProfile extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mUserDatabase;
 
-    private String userId, name, phone, profileImageUrl, userSex;
+    private String userId, name, Date, profileImageUrl, gender, bio;
 
     private Uri resultUri;
 
@@ -55,6 +55,8 @@ public class SetUpProfile extends AppCompatActivity {
 
         mNameField = (EditText) findViewById(R.id.name);
         mPhoneField = (EditText) findViewById(R.id.about);
+        mBio = (EditText) findViewById(R.id.bio);
+        mGender = (EditText) findViewById(R.id.gender);
 
         mProfileImage = (ImageView) findViewById(R.id.profileImage);
 
@@ -96,12 +98,17 @@ public class SetUpProfile extends AppCompatActivity {
                         name = map.get("name").toString();
                         mNameField.setText(name);
                     }
-                    if (map.get("phone") != null) {
-                        phone = map.get("phone").toString();
-                        mPhoneField.setText(phone);
+                    if (map.get("Date") != null) {
+                        Date = map.get("Date").toString();
+                        mPhoneField.setText(Date);
                     }
-                    if (map.get("sex") != null) {
-                        userSex = map.get("sex").toString();
+                    if (map.get("bio") != null) {
+                        bio = map.get("bio").toString();
+                        mBio.setText(bio);
+                    }
+                    if (map.get("gender") != null) {
+                        gender = map.get("gender").toString();
+                        mGender.setText(gender);
                     }
                     Glide.clear(mProfileImage);
                     if (map.get("profileImageUrl") != null) {
@@ -128,11 +135,15 @@ public class SetUpProfile extends AppCompatActivity {
 
     private void saveUserInformation() {
         name = mNameField.getText().toString();
-        phone = mPhoneField.getText().toString();
+        Date = mPhoneField.getText().toString();
+        bio = mBio.getText().toString();
+        gender = mGender.getText().toString();
 
         Map userInfo = new HashMap();
         userInfo.put("name", name);
-        userInfo.put("phone", phone);
+        userInfo.put("Date", Date);
+        userInfo.put("bio", bio);
+        userInfo.put("gender", gender);
         mUserDatabase.updateChildren(userInfo);
         if (resultUri != null) {
             final StorageReference filepath = FirebaseStorage.getInstance().getReference().child("profileImages").child(userId);
