@@ -14,9 +14,9 @@ import java.util.HashMap;
 
 public class Question2 extends HomeActivity {
     Button btnLogout;
-    Button mMale;
-    Button mFemale;
-    Button mOther;
+    Button Male;
+    Button Female;
+    Button Other;
     Button mNext;
     private DatabaseReference mDatabase;
 
@@ -25,9 +25,9 @@ public class Question2 extends HomeActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question2);
         btnLogout = findViewById(R.id.logout);
-        mMale = findViewById(R.id.button3);
-        mFemale = findViewById(R.id.button4);
-        mOther = findViewById(R.id.button5);
+        Male = findViewById(R.id.button3);
+        Female = findViewById(R.id.button4);
+        Other = findViewById(R.id.button5);
         mNext = findViewById(R.id.button);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -38,40 +38,40 @@ public class Question2 extends HomeActivity {
                 startActivity(intToMain);
             }
         });
-        mMale.setOnClickListener(new View.OnClickListener() {
+        Male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String male = mMale.getText().toString().trim();
+                String male = Male.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
                 newFemaleUser.setPreferredSex('A');
                 newUser.setPreferredSex('A');
                 mDatabase.push().setValue(dataMap);
-                mMale.setBackgroundColor(Color.parseColor("#22e4ac"));
+                Male.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
-        mFemale.setOnClickListener(new View.OnClickListener() {
+        Female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String female = mFemale.getText().toString().trim();
+                String female = Female.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
                 newFemaleUser.setPreferredSex('B');
                 newUser.setPreferredSex('B');
                 mDatabase.push().setValue(dataMap);
-                mFemale.setBackgroundColor(Color.parseColor("#22e4ac"));
+                Female.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
-        mOther.setOnClickListener(new View.OnClickListener() {
+        Other.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String other = mOther.getText().toString().trim();
+                String other = Other.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
                 newFemaleUser.setPreferredSex('C');
                 newUser.setPreferredSex('C');
                 mDatabase.push().setValue(dataMap);
-                mOther.setBackgroundColor(Color.parseColor("#22e4ac"));
+                Other.setBackgroundColor(Color.parseColor("#22e4ac"));
 
             }
         });

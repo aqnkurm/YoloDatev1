@@ -24,7 +24,7 @@ public class User extends HomeActivity {
 
     // This function asks the user their gender
     // The user must enter 'a', 'b', or 'c' and its case insensitive
-    public void setGender(char response) {
+    public void setGender(char response, String male) {
 
         //Scanner genderResponse = new Scanner(System.in);
         System.out.println("What is your gender?");
@@ -32,7 +32,7 @@ public class User extends HomeActivity {
 
         // User entered invalid letter so we ask them again
         while (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
-                response == 'C' || response == 'c' || response == 'D' || response == 'd')) {
+                response == 'C' || response == 'c')) {
             System.out.println("You entered an invalid letter. Try again.");
             //response = genderResponse.next().charAt(0);
         }
@@ -63,7 +63,7 @@ public class User extends HomeActivity {
 
         // User entered invalid letter so we ask them again
         while (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
-                response == 'C' || response == 'c' || response == 'D' || response == 'd')) {
+                response == 'C' || response == 'c')) {
             System.out.println("You entered an invalid letter. Try again.");
             //response = preferredSexResponse.next().charAt(0);
         }

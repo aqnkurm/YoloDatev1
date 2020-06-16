@@ -23,9 +23,9 @@ public class HomeActivity extends AppCompatActivity {
     User newFemaleUser = new User("Female");
     User newUser = new User("Male");
     Button btnLogout;
-    Button mMale;
-    Button mFemale;
-    Button mOther;
+    Button Male;
+    Button Female;
+    Button Other;
     Button mNext;
     private DocumentReference mDocRef = FirebaseFirestore.getInstance().document("users");
     private FirebaseAuth mAuth;
@@ -36,9 +36,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         btnLogout = findViewById(R.id.logout);
-        mMale = findViewById(R.id.button3);
-        mFemale = findViewById(R.id.button4);
-        mOther = findViewById(R.id.button5);
+        Male = findViewById(R.id.button3);
+        Female = findViewById(R.id.button4);
+        Other = findViewById(R.id.button5);
         mNext = findViewById(R.id.button);
         mAuth = FirebaseAuth.getInstance();
         userId = mAuth.getCurrentUser().getUid();
@@ -52,36 +52,36 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intToMain);
             }
         });
-        mMale.setOnClickListener(new View.OnClickListener() {
+        Male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String male = mMale.getText().toString().trim();
+                String male = Male.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
-                newUser.setGender('A');
+                newUser.setGender('A', male);
                 mDocRef.set(dataMap);
-                mMale.setBackgroundColor(Color.parseColor("#22e4ac"));
+                Male.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
-        mFemale.setOnClickListener(new View.OnClickListener() {
+        Female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String female = mFemale.getText().toString().trim();
+                String female = Female.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
-                newFemaleUser.setGender('B');
+                newFemaleUser.setGender('B', female);
                 mDocRef.set(dataMap);
-                mFemale.setBackgroundColor(Color.parseColor("#22e4ac"));
+                Female.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
-        mOther.setOnClickListener(new View.OnClickListener() {
+        Other.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String other = mOther.getText().toString().trim();
+                String other = Other.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
                 mDocRef.set(dataMap);
-                mOther.setBackgroundColor(Color.parseColor("#22e4ac"));
+                Other.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
         mNext.setOnClickListener(new View.OnClickListener() {
@@ -96,9 +96,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void saveUserInformation() {
-        male = mMale.getText().toString();
-        female = mFemale.getText().toString();
-        other = mOther.getText().toString();
+        male = Male.getText().toString();
+        female = Female.getText().toString();
+        other = Other.getText().toString();
         Map userInfo = new HashMap();
         userInfo.put("name", male);
         userInfo.put("name", female);
@@ -114,15 +114,15 @@ public class HomeActivity extends AppCompatActivity {
                     Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
                     if (map.get("name") != null) {
                         male = map.get("name").toString();
-                        mMale.setText(male);
+                        Male.setText(male);
                     }
                     if (map.get("name") != null) {
                         female = map.get("name").toString();
-                        mFemale.setText(female);
+                        Female.setText(female);
                     }
                     if (map.get("name") != null) {
                         other = map.get("name").toString();
-                        mOther.setText(other);
+                        Other.setText(other);
                     }
                 }
             }

@@ -68,7 +68,7 @@ public class PhoneActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(PhoneActivity.this, "Login Error, Please Login Again", Toast.LENGTH_SHORT).show();
                             } else {
-                                Intent intToHome = new Intent(PhoneActivity.this, HomeActivity.class);
+                                Intent intToHome = new Intent(PhoneActivity.this, SetUpProfile.class);
                                 startActivity(intToHome);
                             }
                         }

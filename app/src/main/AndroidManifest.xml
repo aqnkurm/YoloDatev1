@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -14,7 +13,8 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivitySetUp"></activity>
+        <activity android:name=".SetUpProfile"></activity>
+        <activity android:name=".ActivitySetUp" />
         <activity android:name=".ActivityMatchProfile" />
         <activity android:name=".ActivitySettings" />
         <activity android:name=".ActivityMeme" />
