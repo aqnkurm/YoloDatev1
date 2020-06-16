@@ -6,28 +6,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
-    User newFemaleUser = new User("Female");
-    User newUser = new User("Male");
+    //User newFemaleUser = new User("Female");
+    //User newUser = new User("Male");
     Button btnLogout;
     Button Male;
     Button Female;
     Button Other;
     Button mNext;
-    private DocumentReference mDocRef = FirebaseFirestore.getInstance().document("users");
+    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private String userId, male, female, other;
 
@@ -41,8 +36,10 @@ public class HomeActivity extends AppCompatActivity {
         Other = findViewById(R.id.button5);
         mNext = findViewById(R.id.button);
         mAuth = FirebaseAuth.getInstance();
-        userId = mAuth.getCurrentUser().getUid();
-        getUserInfo();
+//        userId = mAuth.getCurrentUser().getUid();
+        //getUserInfo();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +55,8 @@ public class HomeActivity extends AppCompatActivity {
                 String male = Male.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
-                newUser.setGender('A', male);
-                mDocRef.set(dataMap);
+                // newUser.setPreferredSex('A');
+                mDatabase.push().setValue(dataMap);
                 Male.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
@@ -69,8 +66,8 @@ public class HomeActivity extends AppCompatActivity {
                 String female = Female.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
-                newFemaleUser.setGender('B', female);
-                mDocRef.set(dataMap);
+                //newFemaleUser.setGender('B', female);
+                mDatabase.push().setValue(dataMap);
                 Female.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
@@ -80,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
                 String other = Other.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
-                mDocRef.set(dataMap);
+                mDatabase.push().setValue(dataMap);
                 Other.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
         });
@@ -90,48 +87,8 @@ public class HomeActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent intToMain = new Intent(HomeActivity.this, Question2.class);
                 startActivity(intToMain);
-                saveUserInformation();
             }
         });
     }
 
-    private void saveUserInformation() {
-        male = Male.getText().toString();
-        female = Female.getText().toString();
-        other = Other.getText().toString();
-        Map userInfo = new HashMap();
-        userInfo.put("name", male);
-        userInfo.put("name", female);
-        userInfo.put("name", other);
-        mDocRef.set(userInfo);
-    }
-
-    private void getUserInfo() {
-        mDocRef.set(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
-                    Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                    if (map.get("name") != null) {
-                        male = map.get("name").toString();
-                        Male.setText(male);
-                    }
-                    if (map.get("name") != null) {
-                        female = map.get("name").toString();
-                        Female.setText(female);
-                    }
-                    if (map.get("name") != null) {
-                        other = map.get("name").toString();
-                        Other.setText(other);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-
-        });
-    }
 }

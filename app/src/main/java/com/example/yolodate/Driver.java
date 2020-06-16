@@ -29,5 +29,24 @@ public class Driver extends User{
     }
 
     // Try the algorithm with 2 users
+    public static void main(String[] args) {
+        User me = new User();
+        me.setGender('a');
+        System.out.println(me.getGender());
+        me.setPreferredSex('b');
+        System.out.println(me.getPreferredSex());
+
+        User you = new User();
+        you.setGender('f');
+        System.out.println(you.getGender());
+        you.setPreferredSex('e');
+        System.out.println(you.getPreferredSex());
+
+        if (MatchSex(me, you) == true) {
+            System.out.println("Code to do rest of program");
+        } else {
+            System.out.println("We will stop the program");
+        }
+    }
 
 }

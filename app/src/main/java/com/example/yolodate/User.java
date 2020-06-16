@@ -1,6 +1,5 @@
 package com.example.yolodate;
 
-
 public class User extends HomeActivity {
     private String gender;
     private String preferredSex;
@@ -24,18 +23,18 @@ public class User extends HomeActivity {
 
     // This function asks the user their gender
     // The user must enter 'a', 'b', or 'c' and its case insensitive
-    public void setGender(char response, String male) {
+    public void setGender(char response) {
 
         //Scanner genderResponse = new Scanner(System.in);
         System.out.println("What is your gender?");
         //response = genderResponse.next().charAt(0);
 
         // User entered invalid letter so we ask them again
-        while (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
+        /*if (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
                 response == 'C' || response == 'c')) {
-            System.out.println("You entered an invalid letter. Try again.");
-            //response = genderResponse.next().charAt(0);
-        }
+            //System.out.println("You entered an invalid letter. Try again.");
+            response = genderResponse.next().charAt(0);
+        }*/
 
         if (response == 'A' || response == 'a') {
             gender = "MALE";
@@ -62,11 +61,11 @@ public class User extends HomeActivity {
         //response = preferredSexResponse.next().charAt(0);
 
         // User entered invalid letter so we ask them again
-        while (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
+        /*if (!(response == 'A' || response == 'a' || response == 'B' || response == 'b' ||
                 response == 'C' || response == 'c')) {
-            System.out.println("You entered an invalid letter. Try again.");
+           setPreferredSex('C');
             //response = preferredSexResponse.next().charAt(0);
-        }
+        }*/
 
         if (response == 'A' || response == 'a') {
             preferredSex = "MALE";

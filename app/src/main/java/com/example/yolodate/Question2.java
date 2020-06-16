@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class Question2 extends User {
+public class Question2 extends AppCompatActivity {
     Button btnLogout;
     Button Male;
     Button Female;
@@ -44,8 +46,8 @@ public class Question2 extends User {
                 String male = Male.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", male);
-                newFemaleUser.setPreferredSex('A');
-                newUser.setPreferredSex('A');
+                // newFemaleUser.setPreferredSex('A');
+                // newUser.setPreferredSex('A');
                 mDatabase.push().setValue(dataMap);
                 Male.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
@@ -56,8 +58,8 @@ public class Question2 extends User {
                 String female = Female.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", female);
-                newFemaleUser.setPreferredSex('B');
-                newUser.setPreferredSex('B');
+                // newFemaleUser.setPreferredSex('B');
+                //newUser.setPreferredSex('B');
                 mDatabase.push().setValue(dataMap);
                 Female.setBackgroundColor(Color.parseColor("#22e4ac"));
             }
@@ -68,8 +70,8 @@ public class Question2 extends User {
                 String other = Other.getText().toString().trim();
                 HashMap<String, String> dataMap = new HashMap<>();
                 dataMap.put("Name", other);
-                newFemaleUser.setPreferredSex('C');
-                newUser.setPreferredSex('C');
+                //newFemaleUser.setPreferredSex('C');
+                //newUser.setPreferredSex('C');
                 mDatabase.push().setValue(dataMap);
                 Other.setBackgroundColor(Color.parseColor("#22e4ac"));
 

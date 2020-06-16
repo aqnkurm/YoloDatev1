@@ -35,6 +35,8 @@ import java.util.Map;
 
 public class SetUpProfile extends AppCompatActivity {
     private EditText mNameField, mPhoneField, mBio, mGender;
+    User newUser = new User();
+
 
     private Button mConfirm;
 
@@ -46,7 +48,6 @@ public class SetUpProfile extends AppCompatActivity {
     private String userId, name, Date, profileImageUrl, gender, bio;
 
     private Uri resultUri;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +109,13 @@ public class SetUpProfile extends AppCompatActivity {
                     }
                     if (map.get("gender") != null) {
                         gender = map.get("gender").toString();
+                        if (map.get("gender").equals("Male") || map.get("gender").equals("MALE") || map.get("gender").equals("male")) {
+                            newUser.setGender('A');
+                        } else if (map.get("gender").equals("Female") || map.get("gender").equals("FEMALE") || map.get("gender").equals("female")) {
+                            newUser.setGender('B');
+                        } else {
+                            newUser.setGender('C');
+                        }
                         mGender.setText(gender);
                     }
                     Glide.clear(mProfileImage);
